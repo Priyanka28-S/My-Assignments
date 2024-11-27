@@ -1,0 +1,14 @@
+let  firstName =   'Skandavi';
+console.log(typeof  firstName);
+
+let companyName = '123334';
+console.log( typeof companyName);
+
+let mobileNumber = 797998945
+console.log(typeof mobileNumber);
+
+let isAutomation = true;
+console.log(typeof isAutomation);
+
+let hasPlaywright;
+console.log(typeof hasPlaywright);
