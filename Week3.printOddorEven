@@ -1,0 +1,24 @@
+function printOddNumbers(){
+//let i=1;
+//console.log("i");
+
+let n = 15;
+console.log("Enter n value" + n);
+
+
+    if (n %2 !=0)
+    {
+        console.log("Number is odd "+  n);
+        
+    }else {
+        console.log("Number is even" +  n);
+        
+    }
+
+ 
+
+}
+
+
+
+printOddNumbers();
