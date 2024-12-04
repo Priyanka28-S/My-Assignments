@@ -1,0 +1,21 @@
+function GradeCalculation(Grade){
+    switch (true){
+        //const Grade = "0";
+        case  Grade >= 90:
+        console.log("The student scored Good mark as above 100");
+        break;
+        case  Grade >= 70:
+        console.log("The student scored average mark as below 70");
+        break;
+        case  Grade>= 50:
+        console.log("The student scored Pass mark as 50");
+        break;
+
+            
+        default:
+            console.log("Student got failed and Grade is D");
+            break;
+    }
+}
+const Grade = "70";
+GradeCalculation(Grade);
