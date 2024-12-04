@@ -30,3 +30,35 @@ function launchBrowser (){
 }
 let browserName ='chrome';
 launchBrowser()
+
+
+function runTests(testType){
+    switch (testType){
+        case  'smoke':
+        console.log("Smoke test");
+        break;
+
+        case 'sanity':
+        Console.log( "sanity test");
+        break;
+
+        case  'regression':
+        console.log( "regression test");
+        break;
+
+        case 'Functional':
+        console.log( "Functional test");
+        break;
+
+        default:
+                'Smoke';
+
+             
+                
+    }
+
+}  
+
+let testType= "Smoke";
+runTests("Smoke");  
+//console.log('runTests');
