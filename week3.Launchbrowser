@@ -1,0 +1,32 @@
+function launchBrowser (){
+    if (browserName ==='Chrome')
+    {
+        console.log("The browser Chrome is launched");
+        
+    }
+    if (browserName ==='Chrome')
+        {
+            console.log("The browser Chrome is launched");
+            
+        }
+       else if (browserName ==='Firefox')
+            {
+                console.log("The browser Firefox is launched");
+                
+            }
+          else  if (browserName ==='Safari')
+                {
+                    console.log("The browser Safari is launched");
+                    
+                }
+
+                else{
+                    console.log("Browser is not launched");
+                    
+                }
+
+                          
+
+}
+let browserName ='chrome';
+launchBrowser()
