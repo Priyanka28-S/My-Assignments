@@ -1,0 +1,14 @@
+function numberType(){
+    let i= -15;
+     if (i>0)
+        {
+            console.log("Number is positive and greater than 0"+ i);
+            
+        }else {
+            console.log("Number is less than 0 " +i);
+            
+        }
+
+}
+
+numberType();
