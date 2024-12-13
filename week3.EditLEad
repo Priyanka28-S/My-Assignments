@@ -1,0 +1,67 @@
+import { chromium, test } from "@playwright/test";
+
+test(`EditLead`, async () => {
+  // Launch browser
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  // Load URL
+  await page.goto("http://leaftaps.com/opentaps/control/main");
+
+  // Enter username
+  await page.locator("#username").fill("Demosalesmanager");
+
+  // Enter password
+  await page.locator("#password").fill("crmsfa");
+
+  // Click login
+  await page.locator(".decorativeSubmit").click();
+
+  // Click on CRM/SFA
+  await page.locator("text=CRM/SFA").click();
+
+  // Navigate to Leads
+  await page.locator("//a[text()='Leads']").click();
+
+//Find leads
+  
+  await page.locator("//a[text()='Find Leads']").click();
+
+  //Enter the first name
+  await page.locator(`(//div[@class = "x-form-element"]/input[@name = "firstName"])[3]`).fill(`Skandavi`)
+
+  //Click Find Leads button 
+  await page.locator("//button[text()='Find Leads']").click();
+
+  //Click the first resulting Lead ID 
+
+  await page.locator(`(//div[@class = "x-grid3-cell-inner x-grid3-col-partyId"]/a)[1]`).click()
+
+  // Click Edit 
+
+  await page.getByText("Edit").click();
+  //Edit Company name 
+  const companyName= await page.locator("#updateLeadForm_companyName").fill("cts");
+
+  const annualRevenue = await page.locator("#updateLeadForm_annualRevenue").fill("1200000");
+
+  await page.locator("#updateLeadForm_departmentName").fill("Softwate Engineer");
+
+ // Enter Description 
+
+ await page.locator("#updateLeadForm_description").fill("Baby Girl");
+ //Click Update 
+ await page.locator("(//input[@name='submitButton'])[1]").click();
+
+//Title of the fields
+//const companyName = await page.locator("#updateLeadForm_companyName").inputValue();
+  //const annualRevenue = await page.locator("#updateLeadForm_annualRevenue").inputValue();
+  //const status = await page.locator("#viewLead_statusId_sp").innerText();
+  const pageTitle = await page.title();
+  console.log(`The Company Name is: ${await page.locator(`//span[@id='viewLead_companyName_sp']`).innerText()}`)
+  console.log(`The annual revenue  is: ${await page.locator(`//span[@id='viewLead_annualRevenue_sp']`).innerText()}`)
+  console.log(`The annual revenue  is: ${await page.locator(`//span[@id='viewLead_description_sp']`).innerText()}`)
+  console.log(`The page title is: ${await page.locator(`//div[@id='sectionHeaderTitle_leads']`).innerText()}`)
+
+});
