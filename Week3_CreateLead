@@ -1,0 +1,70 @@
+import { chromium, test } from "@playwright/test";
+
+test(`Locators`, async () => {
+  // Launch browser
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  // Load URL
+  await page.goto("http://leaftaps.com/opentaps/control/main");
+
+  // Enter username
+  await page.locator("#username").fill("Demosalesmanager");
+
+  // Enter password
+  await page.locator("#password").fill("crmsfa");
+
+  // Click login
+  await page.locator(".decorativeSubmit").click();
+
+  // Click on CRM/SFA
+  await page.locator("text=CRM/SFA").click();
+
+  // Navigate to Leads
+  await page.locator("//a[text()='Leads']").click();
+
+  // Click Create Lead
+  await page.locator("//a[text()='Create Lead']").click();
+
+  // Fill company name
+  await page.locator("#createLeadForm_companyName").fill("TCS");
+
+  // Fill first name
+  await page.locator("#createLeadForm_firstName").fill("Skandavi");
+
+  // Fill last name
+  await page.locator("#createLeadForm_lastName").fill("S.P");
+
+  // Fill personal title
+  await page.locator("[name='personalTitle']").fill("Mrs");
+
+  // Fill professional title
+  await page.locator("[name='generalProfTitle']").fill("Mrs");
+
+  // Fill annual revenue
+  await page.locator("[name='annualRevenue']").fill("10000000");
+
+  // Fill department name
+  await page.locator("#createLeadForm_departmentName").fill("Dental");
+
+  // Fill primary phone number
+  await page.locator("#createLeadForm_primaryPhoneNumber").fill("8940099637");
+
+  // Submit the form
+  await page.locator("//input[@type='submit']").click();
+
+  // Log meaningful information
+  const companyName = await page.locator("#createLeadForm_companyName").inputValue();
+  const firstName = await page.locator("#createLeadForm_firstName").inputValue();
+  const status = await page.locator("#viewLead_statusId_sp").innerText();
+  const pageTitle = await page.title();
+
+  console.log(`Company Name: ${companyName}`);
+  console.log(`First Name: ${firstName}`);
+  console.log(`The status is: ${status}`);
+  console.log(`Page title: ${pageTitle}`);
+
+  // Close browser
+  await browser.close();
+});
